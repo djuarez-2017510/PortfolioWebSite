@@ -1,32 +1,35 @@
 import { useEffect } from 'react';
-import { CoverParticles } from "./components/CoverParticles";
-import Hero from './components/Hero';
-import About from './components/About';
-import Skills from './components/Skills';
-import Projects from './components/Projects';
-import Footer from './components/Footer';
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import Navbar from './components/shared/Navbar';
+import Hero from './components/sections/Hero';
+import About from './components/sections/About';
+import Skills from './components/sections/Skills';
+import Experience from './components/sections/Experience';
+import Projects from './components/sections/Projects';
+import Footer from './components/shared/Footer';
 
 function App() {
   useEffect(() => {
-    AOS.init({ duration: 1000 });
+    // Smooth scroll behavior
+    document.documentElement.style.scrollBehavior = 'smooth';
   }, []);
 
   return (
-    <>
-      {/* Fondo animado */}
-      <CoverParticles />
+    <div className='bg-white dark:bg-slate-900'>
+      {/* Navbar */}
+      <Navbar />
 
-      {/* Contenido encima del fondo */}
-      <main className='relative z-10 bg-transparent bg-opacity-90'>
+      {/* Contenido principal */}
+      <main className='relative z-10'>
         <Hero />
         <About />
         <Skills />
+        <Experience />
         <Projects />
-        <Footer />
       </main>
-    </>
+
+      {/* Footer */}
+      <Footer />
+    </div>
   );
 }
 
